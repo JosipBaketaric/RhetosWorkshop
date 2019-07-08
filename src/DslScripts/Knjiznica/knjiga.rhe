@@ -5,6 +5,7 @@ Module Knjiznica
         ShortString Kod { AutoCode; }
         ShortString Naslov;
         Integer BrojStranica;
+        Reference Autor Knjiznica.Osoba;
 
         ItemFilter CommonMisspelling 'Knjiga => Knjiga.Naslov.Contains("curiousity")';
         InvalidData CommonMisspelling 'It is not allowed to enter misspelled word "curiousity". Please use "curiosity" instead.';

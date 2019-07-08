@@ -1,0 +1,7 @@
+Module Knjiznica
+{
+    Entity Osoba
+    {
+        ShortString Ime;
+    }
+}

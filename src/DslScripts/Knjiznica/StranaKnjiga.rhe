@@ -1,0 +1,10 @@
+Module Knjiznica
+{
+    Entity DjecijaKnjiga
+    {
+        Extends Knjiznica.Knjiga;
+
+        ShortString IzvorniJezik;
+        Reference Translator Knjiznica.Osoba;
+    }
+}

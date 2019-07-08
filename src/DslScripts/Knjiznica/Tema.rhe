@@ -1,0 +1,9 @@
+Module Knjiznica
+{
+    Entity Tema
+    {
+        ShortString Name { Unique; Required; }
+
+        
+    }
+}
