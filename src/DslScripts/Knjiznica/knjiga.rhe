@@ -1,0 +1,14 @@
+Module Knjiznica
+{
+    Entity Knjiga
+    {
+        ShortString Kod { AutoCode; }
+        ShortString Naslov;
+        Integer BrojStranica;
+
+        ItemFilter CommonMisspelling 'Knjiga => Knjiga.Naslov.Contains("curiousity")';
+        InvalidData CommonMisspelling 'It is not allowed to enter misspelled word "curiousity". Please use "curiosity" instead.';
+
+        Logging;
+    }
+}
