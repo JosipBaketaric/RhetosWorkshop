@@ -11,11 +11,12 @@ Module Hotel
       Reference Gost Hotel.Gost { Required; }
 
       // Gost može rezervirati samo ako ima neplačenih dugova
+      // Neplačeni dug se smatra da gost ima rezervaciju koja je bila u prošlosti a nije plačena
       ItemFilter InvalidDataUnpaidDebts 'item => repository.Hotel.Rezervacija.Subquery.Where(x =>
             x.GostID == item.GostID && x.Placeno == false && x.DatumOdjave <= DateTime.Now).Count() > 1';
       InvalidData InvalidDataUnpaidDebts  'Ne možete napraviti novu rezervaciju dok ne podmirite dugove.';
 
-
+      // Datum prijave mora biti manji od datuma odjave
       ItemFilter InvalidDate 'item => item.DatumPrijave >= item.DatumOdjave';
       InvalidData InvalidDate  'Datum prijave mora biti manji od datuma odjave';
     }

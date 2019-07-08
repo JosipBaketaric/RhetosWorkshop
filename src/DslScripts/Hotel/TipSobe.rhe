@@ -5,6 +5,7 @@ Module Hotel
         ShortString Naziv { Required; Unique; }
         Decimal Cijena { Required; }
         Integer Rating;
+        
         UniqueMultiple 'Rating Cijena';
     }
 }

@@ -1,5 +1,7 @@
 Module Hotel
 {
+    // Vezna tablica između rezervacije i sobe.
+    // Gost može u sklopu jedne rezervacije rezervirati više soba
     Entity RezervacijaSoba
     {
         Reference Rezervacija Hotel.Rezervacija { Required; Detail; }
