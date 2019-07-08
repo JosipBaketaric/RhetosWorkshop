@@ -1,0 +1,16 @@
+Module Hotel
+{
+    Entity Gost
+    {
+        ShortString Ime { Required; }
+        ShortString Prezime { Required; }
+        ShortString Email { Required; }
+
+    }
+
+    Entity Dijete 
+    {
+        Extends Hotel.Gost;
+        Decimal Popust;
+    }
+}

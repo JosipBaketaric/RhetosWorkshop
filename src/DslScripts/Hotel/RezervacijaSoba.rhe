@@ -1,0 +1,16 @@
+Module Hotel
+{
+    Entity RezervacijaSoba
+    {
+        Reference Rezervacija Hotel.Rezervacija { Required; Detail; }
+        Reference Soba Hotel.Soba { Required; }
+
+        ItemFilter DateOverlap 'item => repository.Hotel.RezervacijaSoba.Subquery.Where(x => 
+            x.Rezervacija.Otkazano == false && item.Rezervacija.Otkazano == false && x.ID != item.ID && x.SobaID == item.SobaID
+            && ((x.Rezervacija.DatumPrijave >= item.Rezervacija.DatumPrijave && x.Rezervacija.DatumPrijave <= item.Rezervacija.DatumOdjave)
+            || (x.Rezervacija.DatumOdjave >= item.Rezervacija.DatumPrijave && x.Rezervacija.DatumOdjave <= item.Rezervacija.DatumOdjave)
+            || (item.Rezervacija.DatumOdjave >= x.Rezervacija.DatumPrijave && item.Rezervacija.DatumOdjave <= x.Rezervacija.DatumOdjave)
+            )).Any()';
+      InvalidData DateOverlap 'Vehicle already reserved on selected time period.';
+    }
+}

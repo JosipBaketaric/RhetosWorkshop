@@ -1,0 +1,8 @@
+Module Hotel
+{
+    Entity Soba
+    {
+        ShortString Lokacija { Required; }
+        Reference TipSobe Hotel.TipSobe { Required; }
+    }
+}

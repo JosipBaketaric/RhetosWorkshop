@@ -1,0 +1,4 @@
+•	Proširite svoju postojeću aplikaciju s novim modulom: “Rezervacije”:
+o	Napišite novu DSL skriptu koja sadrži entitete Soba, TipSobe, Rezervacija i Gost. Dodajte relacije među njima prema priloženoj slici “hotel diagram 2.png”.
+o	The solution should contain at least one example of each concept: Module, Entity, Integer, ShortString, LongString, Reference, Detail, Extends, Required, Unique, UniqueMultiple.
+o	The solution should contain at least one example of each relationship type (1:N, 1:1, N:N) between entities.

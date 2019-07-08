@@ -1,0 +1,22 @@
+Module Hotel
+{
+    Entity Rezervacija
+    {
+      Date DatumPrijave { Required; }
+      Date DatumOdjave { Required; }
+      LongString Zahtjevi;
+      Bool Placeno { DefaultValue 'item => false'; }
+      Bool Otkazano { DefaultValue 'item => false'; }
+
+      Reference Gost Hotel.Gost { Required; }
+
+      // Gost može rezervirati samo ako ima neplačenih dugova
+      ItemFilter InvalidDataUnpaidDebts 'item => repository.Hotel.Rezervacija.Subquery.Where(x =>
+            x.GostID == item.GostID && x.Placeno == false && x.DatumOdjave <= DateTime.Now).Count() > 1';
+      InvalidData InvalidDataUnpaidDebts  'Ne možete napraviti novu rezervaciju dok ne podmirite dugove.';
+
+
+      ItemFilter InvalidDate 'item => item.DatumPrijave >= item.DatumOdjave';
+      InvalidData InvalidDate  'Datum prijave mora biti manji od datuma odjave';
+    }
+}

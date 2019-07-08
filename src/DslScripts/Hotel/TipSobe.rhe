@@ -1,0 +1,10 @@
+Module Hotel
+{
+    Entity TipSobe
+    {
+        ShortString Naziv { Required; Unique; }
+        Decimal Cijena { Required; }
+        Integer Rating;
+        UniqueMultiple 'Rating Cijena';
+    }
+}
